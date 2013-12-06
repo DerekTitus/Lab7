@@ -13,10 +13,19 @@ void main(void) {
     while(1)
     {
     	initLeftSensor();
-    	if (initLeftSensor() >= 0x220){
-    		P1OUT |= 0x01;}
+    	if (initLeftSensor() >= 0x230){
+    		P1OUT |= BIT0;}
     	else{
-    		P1OUT &= ~0x01;}
+    		P1OUT &= ~BIT0;}
 
-    }
+    	initRightSensor();
+    	if (initRightSensor() >= 0x270){
+    		P1OUT |= BIT6;
+    	}
+    	else{
+    		P1OUT &= ~BIT6;
+    	}
+    	}
+
+
 }
